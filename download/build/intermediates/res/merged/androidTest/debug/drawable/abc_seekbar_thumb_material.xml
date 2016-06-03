@@ -32,4 +32,4 @@
         <bitmap android:src="@drawable/abc_scrubber_control_to_pressed_mtrl_000"
                 android:gravity="center"/>
     </item>
-</selector><!-- From: file:/D:/MyProjects/DownloadDemo/download/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_seekbar_thumb_material.xml -->
+</selector><!-- From: file:/D:/MyProjects/ParallelDownload/download/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_seekbar_thumb_material.xml -->
