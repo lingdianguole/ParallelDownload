@@ -1,0 +1,94 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:1:1-23:12
+	xmlns:android
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:1:11-69
+	package
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:1:70-95
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:3:5-67
+	android:name
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:3:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:6:22-78
+application
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:9:5-21:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [DownloadDemo:download:unspecified] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\DownloadDemo\download\unspecified\AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+	android:supportsRtl
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:10:44-70
+	android:label
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:9:45-77
+	android:allowBackup
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:9:18-44
+	android:icon
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:10:9-43
+	android:theme
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:11:9-40
+activity#jc.downloaddemo.DownloadActivity
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:12:9-20:20
+	android:label
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:14:13-42
+	android:name
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:13:13-45
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:15:13-19:29
+action#android.intent.action.MAIN
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:18:17-77
+	android:name
+		ADDED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml:18:27-74
+uses-sdk
+INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [org.simple:androideventbus:1.0.5.1] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\org.simple\androideventbus\1.0.5.1\AndroidManifest.xml:7:5-9:40
+MERGED from [DownloadDemo:download:unspecified] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\DownloadDemo\download\unspecified\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+		INJECTED from D:\MyProjects\DownloadDemo\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] D:\MyProjects\DownloadDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
