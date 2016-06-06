@@ -186,6 +186,30 @@ public class DownloadManager implements DownloaderChangedListener {
         }
     }
 
+    public void disableProgress() {
+        Assert.assertTrue(initialized);
+        Map<Key, Downloader> map = lruCache.snapshot();
+        for (Downloader downloader : map.values()) {
+            if (downloader != null) {
+                if (downloader.isRunning()) {
+                    downloader.disableProgress();
+                }
+            }
+        }
+    }
+
+    public void enableProgress() {
+        Assert.assertTrue(initialized);
+        Map<Key, Downloader> map = lruCache.snapshot();
+        for (Downloader downloader : map.values()) {
+            if (downloader != null) {
+                if (downloader.isRunning()) {
+                    downloader.enableProgress();
+                }
+            }
+        }
+    }
+
     public void cancel() {
         Assert.assertTrue(initialized);
         shelvedList.clear();

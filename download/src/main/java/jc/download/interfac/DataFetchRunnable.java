@@ -10,6 +10,10 @@ public interface DataFetchRunnable extends Runnable, Prioritized {
 
     void shelve();
 
+    void enableProgress();
+
+    void disableProgress();
+
     boolean isRunning();
 
     boolean isCompleted();

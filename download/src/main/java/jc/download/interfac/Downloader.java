@@ -31,6 +31,9 @@ public interface Downloader {
     Key getKey();
     DownloadResponse getResponse();
 
+    void enableProgress(); // Enable progress update, due to sluggish issue when UI render.
+    void disableProgress(); // Disable progress update, due to sluggish issue when UI render.
+
     /** update db */
     void update(DownloadInfo info);
     void updateStatus(String key, int status);

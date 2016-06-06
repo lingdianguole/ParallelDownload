@@ -5,4 +5,5 @@ public interface Command {
     int PAUSE   = 0;
     int CANCEL  = 1;
     int SHELVE  = 2;
+    int PROGRESS  = 3; // Stop updating progress.
 }

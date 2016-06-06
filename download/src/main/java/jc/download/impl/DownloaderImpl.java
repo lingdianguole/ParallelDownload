@@ -146,6 +146,21 @@ public class DownloaderImpl implements Downloader, ConnectListener, DataFetchLis
     }
 
     @Override
+    public void enableProgress() {
+        for (DataFetchJob job : dataFetchJobList) {
+            job.enableProgress();
+        }
+    }
+
+
+    @Override
+    public void disableProgress() {
+        for (DataFetchJob job : dataFetchJobList) {
+            job.disableProgress();
+        }
+    }
+
+    @Override
     public void cancel() {
         if (isPreparing()) {
             cmd = Command.CANCEL;

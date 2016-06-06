@@ -54,6 +54,14 @@ public abstract class DataFetchJob implements DataFetchRunnable {
         cmd = Command.SHELVE;
     }
 
+    public void disableProgress() {
+        cmd = Command.PROGRESS;
+    }
+
+    public void enableProgress() {
+        cmd = Command.INVALID;
+    }
+
     public boolean isRunning() {
         return DownloadStatus.PROGRESS == status;
     }
@@ -193,7 +201,9 @@ public abstract class DataFetchJob implements DataFetchRunnable {
                     if (elapsed >= config.getNotifyInterval()) {
                         update(threadInfo);
                         last = System.currentTimeMillis();
-                        listener.onProgress(downloadInfo.getFinished(), downloadInfo.getLength());
+                        if (cmd != Command.PROGRESS) {
+                            listener.onProgress(downloadInfo.getFinished(), downloadInfo.getLength());
+                        }
                     }
                 }
             } catch (IOException e) {
