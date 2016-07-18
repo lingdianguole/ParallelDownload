@@ -7,22 +7,19 @@ import java.util.List;
 import jc.download.impl.Snapshoot;
 
 public class DataBaseManager {
-    private static DataBaseManager INSTANCE;
-    private final ThreadInfoDao mThreadInfoDao;
-    private final DownloadInfoDao mDownloadInfoDao;
 
-    public static DataBaseManager getInstance(Context context) {
-        if (null == INSTANCE) {
-            synchronized (DataBaseManager.class) {
-                if (null == INSTANCE) {
-                    INSTANCE = new DataBaseManager(context.getApplicationContext());
-                }
-            }
-        }
-        return INSTANCE;
+    private ThreadInfoDao mThreadInfoDao;
+    private DownloadInfoDao mDownloadInfoDao;
+
+    private static class SingletonHolder {
+        static DataBaseManager INSTANCE = new DataBaseManager();
     }
 
-    private DataBaseManager(Context context) {
+    public static DataBaseManager getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+
+    public void init(Context context) {
         mThreadInfoDao = new ThreadInfoDao(context);
         mDownloadInfoDao = new DownloadInfoDao(context);
     }

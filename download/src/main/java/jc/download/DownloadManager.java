@@ -29,24 +29,19 @@ import jc.download.interfac.Key;
 
 /** To apply this module into your application, should call init() before you call it's function. */
 public class DownloadManager implements DownloaderChangedListener {
-    private static DownloadManager INSTANCE;
     private ExecutorService connectService;
     private ExecutorService dataFetchService;
     private Context mContext;
     private DataBaseManager dataBaseManager;
     private LruCache<Key, Downloader> lruCache;
-    private List<Downloader> shelvedList;
+    private List<Downloader> shelvedList; // Storing downloader which has been shelved due to LIFO principle.
     private DownloadConfiguration mConfig;
-    private volatile boolean initialized = false;
+    private volatile boolean initialized = false; // volatile: modify visible.
+    private static class SingletonHolder {
+        static DownloadManager INSTANCE = new DownloadManager();
+    }
     public static DownloadManager getInstance() {
-        if (null == INSTANCE) {
-            synchronized (DownloadManager.class) {
-                if (null == INSTANCE) {
-                    INSTANCE = new DownloadManager();
-                }
-            }
-        }
-        return INSTANCE;
+        return SingletonHolder.INSTANCE;
     }
 
     // Init is valid at the first time.
@@ -72,7 +67,8 @@ public class DownloadManager implements DownloaderChangedListener {
         };
         connectService = new LifoPriorityThreadPoolExecutor(mConfig.getMaxCapacity());
         dataFetchService = new LifoPriorityThreadPoolExecutor(mConfig.getMaxThreadNum() * mConfig.getMaxCapacity());
-        dataBaseManager = DataBaseManager.getInstance(mContext);
+        dataBaseManager = DataBaseManager.getInstance();
+        dataBaseManager.init(mContext);
 
     }
 
