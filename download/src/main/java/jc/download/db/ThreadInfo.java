@@ -1,5 +1,7 @@
 package jc.download.db;
 
+import android.content.ContentValues;
+
 public class ThreadInfo {
 
     private int id;
@@ -74,5 +76,18 @@ public class ThreadInfo {
 
     public void setFinished(long finished) {
         this.finished = finished;
+    }
+
+    private final ContentValues contentValues = new ContentValues();
+
+
+    public ContentValues getContentValues() {
+        contentValues.put("id", id);
+        contentValues.put("key", key);
+        contentValues.put("url", url);
+        contentValues.put("start", start);
+        contentValues.put("end", end);
+        contentValues.put("finished", finished);
+        return contentValues;
     }
 }

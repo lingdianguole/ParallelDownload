@@ -1,5 +1,7 @@
 package jc.download.db;
 
+import android.content.ContentValues;
+
 import java.io.File;
 
 import jc.download.impl.DownloadStatus;
@@ -17,6 +19,7 @@ public class DownloadInfo {
     private File dir;
     private boolean acceptRanges;
     private boolean obsolete;
+
 
     public DownloadInfo() {
     }
@@ -117,6 +120,21 @@ public class DownloadInfo {
 
     public boolean getObsolete() {
         return obsolete;
+    }
+
+    ContentValues contentValues = new ContentValues(); // reuse
+
+    public ContentValues getContentValues() {
+//        contentValues.clear(); not necessary
+        contentValues.put("key", key);
+        contentValues.put("name", name);
+        contentValues.put("url", url);
+        contentValues.put("finished", finished);
+        contentValues.put("length", length);
+        contentValues.put("progress", progress);
+        contentValues.put("status", status);
+        contentValues.put("path", path);
+        return contentValues;
     }
 
 }

@@ -1,5 +1,6 @@
 package jc.download.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,8 @@ import java.util.List;
 public class ThreadInfoDao extends AbstractDao<ThreadInfo> {
 
     private static final String TABLE_NAME = ThreadInfo.class.getSimpleName();
+
+    private final Object mutex = new Object();
 
     public ThreadInfoDao(Context context) {
         super(context);
@@ -25,41 +28,38 @@ public class ThreadInfoDao extends AbstractDao<ThreadInfo> {
 
     public void insert(ThreadInfo info) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("insert into "
-                        + TABLE_NAME
-                        + "(id, key, url, start, end, finished) values(?, ?, ?, ?, ?, ?)",
-                new Object[]{info.getId(), info.getKey(), info.getUrl(), info.getStart(), info.getEnd(), info.getFinished()});
+        synchronized (mutex) {
+            db.insert(TABLE_NAME, null, info.getContentValues());
+        }
     }
 
     public void delete(String key) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("delete from "
-                        + TABLE_NAME
-                        + " where key = ?",
-                new Object[]{key});
+        synchronized (mutex) {
+            db.delete(TABLE_NAME, "key = ?", new String[]{key});
+        }
     }
 
     public void delete(String key, int threadId) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("delete from "
-                        + TABLE_NAME
-                        + " where key = ? and id = ?",
-                new Object[]{key, threadId});
+        synchronized (mutex) {
+            db.delete(TABLE_NAME, "key = ? and id = ?", new String[]{key, String.valueOf(threadId)});
+        }
     }
 
+    private final ContentValues contentValues = new ContentValues();
     public void update(String key, int threadId, long finished) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("update "
-                        + TABLE_NAME
-                        + " set finished = ?"
-                        + " where key = ? and id = ? ",
-                new Object[]{finished, key, threadId});
+        synchronized (mutex) {
+            contentValues.clear();
+            contentValues.put("finished", finished);
+            db.update(TABLE_NAME, contentValues, "key = ? and id = ?", new String[]{key, String.valueOf(threadId)});
+        }
     }
 
     public List<ThreadInfo> getThreadInfos(String key) {
         List<ThreadInfo> list = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-
         Cursor cursor = db.rawQuery("select * from "
                         + TABLE_NAME
                         + " where key = ? order by id desc",

@@ -1,5 +1,6 @@
 package jc.download.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,8 @@ import java.util.List;
 public class DownloadInfoDao extends  AbstractDao<DownloadInfo>{
 
     private static final String TABLE_NAME = DownloadInfo.class.getSimpleName();
+
+    private final Object mutex = new Object();
 
     public DownloadInfoDao(Context context) {
         super(context);
@@ -25,46 +28,48 @@ public class DownloadInfoDao extends  AbstractDao<DownloadInfo>{
 
     public void insert(DownloadInfo info) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("insert into "
-                        + TABLE_NAME
-                        + "(key, name, url, finished, length, progress, status, path) values(?, ?, ?, ?, ?, ?, ?, ?)",
-                new Object[]{info.getKey(), info.getName(), info.getUrl(), info.getFinished(), info.getLength(), info.getProgress(), info.getStatus(), info.getPath()});
+        synchronized (mutex) {
+            db.insert(TABLE_NAME, null, info.getContentValues()); // If set nullColumnHack null, will insert fail due to empty values.
+        }
     }
 
     public void delete(String key) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("delete from "
-                        + TABLE_NAME
-                        + " where key = ?",
-                new Object[]{key});
+        synchronized (mutex) {
+            db.delete(TABLE_NAME, "key = ?", new String[]{key});
+        }
     }
 
+    private final ContentValues contentValues = new ContentValues();
 
     public void update(String key, long finished, int progress, int status) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("update "
-                        + TABLE_NAME
-                        + " set finished = ?, progress = ?, status = ?"
-                        + " where key = ? ",
-                new Object[]{finished, progress, status, key});
+        synchronized (mutex) {
+            contentValues.clear();
+            contentValues.put("finished", finished);
+            contentValues.put("progress", progress);
+            contentValues.put("status", status);
+            db.update(TABLE_NAME, contentValues, "key = ?", new String[]{key});
+        }
     }
 
     public void update(String key, long length, int status) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("update "
-                        + TABLE_NAME
-                        + " set length = ?, status = ?"
-                        + " where key = ? ",
-                new Object[]{length, status, key});
+        synchronized (mutex) {
+            contentValues.clear();
+            contentValues.put("length", length);
+            contentValues.put("status", status);
+            db.update(TABLE_NAME, contentValues, "key = ?", new String[]{key});
+        }
     }
 
     public void update(String key, int status) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("update "
-                        + TABLE_NAME
-                        + " set status = ?"
-                        + " where key = ? ",
-                new Object[]{status, key});
+        synchronized (mutex) {
+            contentValues.clear();
+            contentValues.put("status", status);
+            db.update(TABLE_NAME, contentValues, "key = ?", new String[]{key});
+        }
     }
 
     public DownloadInfo getDownloadInfo(String key) {
